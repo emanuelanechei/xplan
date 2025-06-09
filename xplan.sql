@@ -99,11 +99,11 @@
 --                       If not specified, it defaults to "by_sql_id" if sql_id is set, to "by_hash" if hash is set,
 --                       otherwise to "single".
 -- Author:      Alberto Dell'Era
--- Copyright:   (c) 2008-2024 Alberto Dell'Era http://www.adellera.it
+-- Copyright:   (c) 2008-2025 Alberto Dell'Era http://www.adellera.it
 --------------------------------------------------------------------------------
 
-define XPLAN_VERSION="2.21 18-January-2024"
-define XPLAN_COPYRIGHT="(C) Copyright 2008-2024 Alberto Dell''Era, www.adellera.it"
+define XPLAN_VERSION="2.22 09-June-2025"
+define XPLAN_COPYRIGHT="(C) Copyright 2008-2025 Alberto Dell''Era, www.adellera.it"
 
 set null  "" trimspool on define on escape off pages 50000 tab off arraysize 100 
 set echo off verify off feedback off termout off timing off
@@ -493,21 +493,21 @@ begin
       -- sql profile 
       &COMM_IF_LT_10G. if stmt.sql_profile is not null then 
       &COMM_IF_LT_10G.   print( '==========================================================================================================' );
-      &COMM_IF_LT_10G.   print( '|| --> SQL PROFILE FOUND: ' || stmt.sql_profile || ' <-- @sql_profile ' || stmt.sql_profile || '    || ' ); 
+      &COMM_IF_LT_10G.   print( '|| --> SQL PROFILE FOUND: @sql_profile ' || stmt.sql_profile || '                                     || ' ); 
       &COMM_IF_LT_10G.   print( '==========================================================================================================' );
       &COMM_IF_LT_10G. end if;
 
       -- sql baseline 
       &COMM_IF_LT_11G. if stmt.sql_plan_baseline is not null then 
       &COMM_IF_LT_11G.   print( '==========================================================================================================' );
-      &COMM_IF_LT_11G.   print( '|| --> SQL PLAN BASELINE FOUND: @spm_baselines ' || stmt.sql_plan_baseline || '                           || ' ); 
+      &COMM_IF_LT_11G.   print( '|| --> SQL PLAN BASELINE FOUND: @spm_baselines ' || stmt.sql_plan_baseline || '                        || ' ); 
       &COMM_IF_LT_11G.   print( '==========================================================================================================' );
       &COMM_IF_LT_11G. end if;
 
       -- sql patch 
       &COMM_IF_LT_11G. if stmt.sql_patch is not null then 
       &COMM_IF_LT_11G.   print( '==========================================================================================================' );
-      &COMM_IF_LT_11G.   print( '|| --> SQL PATCH FOUND: ' || stmt.sql_patch || ' <-- please write a script similar to @sql_profile... '||'  || ' ); 
+      &COMM_IF_LT_11G.   print( '|| --> SQL PATCH FOUND: @sql_patch ' || stmt.sql_patch || '                                           || ' ); 
       &COMM_IF_LT_11G.   print( '==========================================================================================================' );
       &COMM_IF_LT_11G. end if;
 
